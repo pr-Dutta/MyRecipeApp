@@ -1,20 +1,21 @@
 package com.example.myrecipeapp
 
+// How JSON objects are structured
+// How JSON object looks like - Ask chat GPT?
+data class Potion(
+    val name: String,
+    val effect: String,
+    val potency: Int
+)
+
 fun main() {
 
-    println("Please enter a number: ")
+    val healingPotion = Potion("Healing Potion", "Restores Health", 50)
+    val invisibilityPotion = Potion("Invisibility Potion", "Grants Invisibility", 40)
+    val strengthPotion = Potion("Strength Potion", "Boosts Strength", 60)
 
-    var number: Int
+    // It acts as a JSON Object?
+    val potionList = listOf(healingPotion, invisibilityPotion, strengthPotion)
 
-    try {
-        // Error prone code you want to execute
-        number = readln().toInt()
-        println("User entered : $number")
-    }catch (e: Exception) {
-        // what should happen when an error occurs
-        println( "Error: ${ e.message }")
-    }finally {
-        number = 0
-    }
-
+    println(potionList)
 }
