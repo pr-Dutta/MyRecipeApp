@@ -54,17 +54,17 @@ dependencies {
 
     // dependencies are the third party code which helps us to make apps faster
 
-    // Compose ViewModel
+    // Compose ViewModel - (ViewModel lifecycle)
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
 
     // Network calls
-    // Retrofit helps us to make a call and get data from the Internate
+    // Retrofit helps us to make a call and get data from the Internet
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
 
-    // JSON to kotlin mapping
+    // Gson:- JSON to kotlin mapping (and vice-versa)
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
-    // Image loading
+    // Coil:- Image loading
     implementation("io.coil-kt:coil-compose:2.4.0")
 
     implementation("androidx.core:core-ktx:1.12.0")
