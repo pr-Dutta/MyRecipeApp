@@ -1,6 +1,18 @@
 package com.example.myrecipeapp
 
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+
+// How can we setup a service
+
+// it's a retrofit object
+private val retrofit = Retrofit.Builder().baseUrl("www.themealdb.com/api/json/v1/1/")
+    .addConverterFactory(GsonConverterFactory.create())
+    .build()
+
+// setting up a service
+val recipeService = retrofit.create(ApiService::class.java)
 
 // This may be a repository
 interface ApiService {
@@ -22,6 +34,12 @@ interface ApiService {
 
     suspend fun getCategories(): CategoriesResponse
 }
+
+
+
+
+
+
 
 
 
