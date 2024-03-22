@@ -54,7 +54,7 @@ dependencies {
 
     // dependencies are the third party code which helps us to make apps faster
 
-    // Compose ViewModel - (ViewModel lifecycle)
+    // Compose ViewModel - (We can use ViewModel lifecycle)
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
 
     // Network calls
