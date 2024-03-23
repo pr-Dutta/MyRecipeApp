@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
-// How can we setup a service?
+// How can we setup a service?, Why we use service and what is it?
 
 // First we have to make a retrofit object
 // We have to build the retrofit url then We need to add a converterFactory to

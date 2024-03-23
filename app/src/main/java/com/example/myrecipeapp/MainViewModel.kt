@@ -6,5 +6,11 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
 
-
+    private val _categoryState = mutableStateOf(RecipeState())
+    val categoriesState: State<RecipeState> = _categoryState
+    data class RecipeState(
+        val loading: Boolean = true,
+        val list: List<Category> = emptyList(),
+        val error: String? = null
+    )
 }
