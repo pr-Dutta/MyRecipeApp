@@ -6,33 +6,36 @@ import retrofit2.http.GET
 
 // How can we setup a service
 
+// First we have to make a retrofit object
+
 // it's a retrofit object
+
+// We have to build the retrofit url then We need to add a converterFactory to
+// convert JSON to kotlin object then we have to build it.
 private val retrofit = Retrofit.Builder().baseUrl("www.themealdb.com/api/json/v1/1/")
     .addConverterFactory(GsonConverterFactory.create())
     .build()
+// This retrofit Builder() is responsible for preparing the end point and adding the JSON
+// converter it than provides the create method for gaining access to the service methods
 
-// setting up a service
+
+// Let's build a connection to this base url do it in a format that we get what
+// we can convert to kotlin object
+
+// setting up a service based on the retrofit object and create it using our ApiService
+// Why we create services?
 val recipeService = retrofit.create(ApiService::class.java)
 
-// This may be a repository
+
 interface ApiService {
 
-    // CategoriesResponse is a Data Class which holds a list of Category - (22-03-2024)
+    // Why we are defining the @GET inside the interface?
+    @GET("categories.php")
 
-    // This @GET comes from retrofit2.http, this GET allows us to do http request - (22-03-2024)
-    // Now we have to define where this http request go to
-    // In our case this request goes to ""categories.php
-    // The categories.php is come from the MealDB api
-    @GET("categories.php")  // Why the GET is used ask ChatGpt ? - - (22-03-2024)
-    // This GET keyword is used to specify the type of request that should be made
-    // to a particular URl ("categories.php") which represents the end point where the
-    // get request will be sent
 
-    // Retrofit uses the annotation @ - to generate the necessary code to make the - (22-03-2024)
-    // network request, sent to get request to the specifies URL and process the
-    // response data
-
+    // This is only the definition of the function
     suspend fun getCategories(): CategoriesResponse
+    // This get category is a service method
 }
 
 
