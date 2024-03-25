@@ -21,7 +21,7 @@ import retrofit2.http.GET
 
 // .builder() :- Finally, this method call creates and returns a Retrofit instance
 private val retrofit = Retrofit.Builder()
-    .baseUrl("www.themealdb.com/api/json/v1/1/")
+    .baseUrl("https://www.themealdb.com/api/json/v1/1/")
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 
@@ -38,8 +38,16 @@ val recipeService = retrofit.create(ApiService::class.java)
 // An interface (ApiService) defines the API endpoint, and a request is made to fetch data
 // This is an API interface
 interface ApiService {
+    // The @GET annotation tells Retrofit that the following function is used to make an HTTP GET request.
     @GET("categories.php")
     // This getCategories is a service method?
+
+    //When using Retrofit, you define an interface to declare endpoints
+    // and HTTP methods. Functions in this interface represent different
+    // API calls, and they are annotated with HTTP method annotations like @GET.
+
+    //  Retrofit takes care of executing this function in a background thread,
+    //  making the network request, and retrieving the data.
     suspend fun getCategories(): CategoriesResponse
 }
 
