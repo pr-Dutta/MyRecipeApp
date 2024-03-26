@@ -24,6 +24,8 @@ import coil.compose.rememberAsyncImagePainter
 
 @Composable
 fun RecipeScreen(modifier: Modifier = Modifier) {
+
+    // This is a ViewModel instance
     val recipeViewModel: MainViewModel = viewModel()
     val viewState by recipeViewModel.categoriesState
 
@@ -45,6 +47,7 @@ fun RecipeScreen(modifier: Modifier = Modifier) {
 
 @Composable
 fun CategoryScreen(categories: List<Category>) {
+    // This should be learned
     LazyVerticalGrid(GridCells.Fixed(2), modifier = Modifier.fillMaxSize()) {
         items(categories) {
             category ->
@@ -63,6 +66,7 @@ fun CategoryItem(category: Category) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
+            // This should be learned
             painter = rememberAsyncImagePainter(category.strCategoryThumb),
             contentDescription = null,
             modifier = Modifier
