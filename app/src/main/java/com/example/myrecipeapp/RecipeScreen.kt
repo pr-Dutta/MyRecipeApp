@@ -48,7 +48,7 @@ fun RecipeScreen(modifier: Modifier = Modifier) {
 @Composable
 fun CategoryScreen(categories: List<Category>) {
     // This should be learned
-    LazyVerticalGrid(GridCells.Fixed(2), modifier = Modifier.fillMaxSize()) {
+    LazyVerticalGrid(columns = GridCells.Fixed(2), modifier = Modifier.fillMaxSize()) {
         items(categories) {
             category ->
             CategoryItem(category = category)
@@ -66,12 +66,13 @@ fun CategoryItem(category: Category) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            // This should be learned
-            painter = rememberAsyncImagePainter(category.strCategoryThumb),
+            // Used to asynchronously load and display image in the UI
+            // Provided by the coil-compose library
+            painter = rememberAsyncImagePainter(model = category.strCategoryThumb),
             contentDescription = null,
             modifier = Modifier
                 .fillMaxSize()
-                .aspectRatio(1f)
+                .aspectRatio(1f)            // new
         )
         
         Text(
