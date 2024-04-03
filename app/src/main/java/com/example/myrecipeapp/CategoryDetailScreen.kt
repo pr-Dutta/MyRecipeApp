@@ -33,12 +33,15 @@ fun CategoryDetailScreen(category: Category) {
             contentDescription = "${category.strCategory} thumbnail",
             modifier = Modifier
                 .wrapContentSize()          // new
-                .aspectRatio(1f)        // new
+                .aspectRatio(1f)        // Height and Weight of the Image
         )
         
         Text(
             text = category.strCategoryDescription,
             textAlign = TextAlign.Justify,
+
+            //  It helps the app remember where the user has scrolled
+            //  to within a scrollable component, like a list or a column.
             modifier = Modifier.verticalScroll(rememberScrollState())       // new
         )
     }

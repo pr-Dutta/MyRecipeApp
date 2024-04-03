@@ -26,7 +26,9 @@ import coil.compose.rememberAsyncImagePainter
 @Composable
 fun RecipeScreen(
     modifier: Modifier = Modifier,
-    navigateToDetail: (Category) -> Unit        // new
+
+    // // We are pushing the lambda function to higher function.
+    navigateToDetail: (Category) -> Unit
 ) {
 
     // This is a ViewModel instance
@@ -52,7 +54,9 @@ fun RecipeScreen(
 @Composable
 fun CategoryScreen(
     categories: List<Category>,
-    navigateToDetail: (Category) -> Unit        // new
+
+    // // We are pushing the lambda function to higher function.
+    navigateToDetail: (Category) -> Unit
 ) {
     // This should be learned
     LazyVerticalGrid(columns = GridCells.Fixed(2), modifier = Modifier.fillMaxSize()) {
@@ -73,7 +77,10 @@ fun CategoryItem(
         modifier = Modifier
             .padding(8.dp)
             .fillMaxSize()
-            .clickable { navigateToDetail(category) },        // new
+
+            // We make the individual recipe item clickable and call the
+            // navigateToDetail() and pass the category to it
+            .clickable { navigateToDetail(category) },
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
