@@ -54,6 +54,10 @@ dependencies {
 
     // dependencies are the third party code which helps us to make apps faster
 
+    // We also have to implement dependencies for navigation as well
+    implementation("androidx.navigation:navigation-common:2.7.4")
+
+
     // Compose ViewModel - (We can use ViewModel lifecycle)
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
 
