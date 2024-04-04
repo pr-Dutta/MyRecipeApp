@@ -26,14 +26,10 @@ import coil.compose.rememberAsyncImagePainter
 @Composable
 fun RecipeScreen(
     modifier: Modifier = Modifier,
-
+    viewState: MainViewModel.RecipeState,
     // // We are pushing the lambda function to higher function.
     navigateToDetail: (Category) -> Unit
 ) {
-
-    // This is a ViewModel instance
-    val recipeViewModel: MainViewModel = viewModel()
-    val viewState by recipeViewModel.categoriesState
 
     Box(modifier = Modifier.fillMaxSize()) {
         when {
