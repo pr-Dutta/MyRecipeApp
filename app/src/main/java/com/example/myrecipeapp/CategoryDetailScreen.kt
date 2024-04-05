@@ -29,20 +29,17 @@ fun CategoryDetailScreen(category: Category) {
         )
         
         Image(
-            painter = rememberAsyncImagePainter(category.strCategoryThumb),         // new
+            painter = rememberAsyncImagePainter(category.strCategoryThumb),
             contentDescription = "${category.strCategory} thumbnail",
             modifier = Modifier
-                .wrapContentSize()          // new
-                .aspectRatio(1f)        // Height and Weight of the Image
+                .wrapContentSize()
+                .aspectRatio(1f)
         )
         
         Text(
             text = category.strCategoryDescription,
             textAlign = TextAlign.Justify,
-
-            //  It helps the app remember where the user has scrolled
-            //  to within a scrollable component, like a list or a column.
-            modifier = Modifier.verticalScroll(rememberScrollState())       // new
+            modifier = Modifier.verticalScroll(rememberScrollState())
         )
     }
 }

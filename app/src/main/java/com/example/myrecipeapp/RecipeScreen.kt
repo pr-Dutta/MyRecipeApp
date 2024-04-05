@@ -27,21 +27,19 @@ import coil.compose.rememberAsyncImagePainter
 fun RecipeScreen(
     modifier: Modifier = Modifier,
     viewState: MainViewModel.RecipeState,
-    // // We are pushing the lambda function to higher function.
     navigateToDetail: (Category) -> Unit
 ) {
 
     Box(modifier = Modifier.fillMaxSize()) {
         when {
             viewState.loading -> {
-                CircularProgressIndicator(modifier.align(Alignment.Center))     // new
+                CircularProgressIndicator(modifier.align(Alignment.Center))
             }
             viewState.error != null -> {
                 Text(text = "ERROR OCCURRED")
             }
             else -> {
-                // Display categories
-                CategoryScreen(categories = viewState.list, navigateToDetail)       // new
+                CategoryScreen(categories = viewState.list, navigateToDetail)
             }
         }
     }
@@ -50,20 +48,17 @@ fun RecipeScreen(
 @Composable
 fun CategoryScreen(
     categories: List<Category>,
-
-    // // We are pushing the lambda function to higher function.
     navigateToDetail: (Category) -> Unit
 ) {
     // This should be learned
     LazyVerticalGrid(columns = GridCells.Fixed(2), modifier = Modifier.fillMaxSize()) {
         items(categories) {
             category ->
-            CategoryItem(category = category, navigateToDetail)         // new
+            CategoryItem(category = category, navigateToDetail)
         }
     }
 }
 
-// How each items looks like
 @Composable
 fun CategoryItem(
     category: Category,
@@ -73,26 +68,21 @@ fun CategoryItem(
         modifier = Modifier
             .padding(8.dp)
             .fillMaxSize()
-
-            // We make the individual recipe item clickable and call the
-            // navigateToDetail() and pass the category to it
             .clickable { navigateToDetail(category) },
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            // Used to asynchronously load and display image in the UI
-            // Provided by the coil-compose library
             painter = rememberAsyncImagePainter(model = category.strCategoryThumb),
             contentDescription = null,
             modifier = Modifier
                 .fillMaxSize()
-                .aspectRatio(1f)            // new
+                .aspectRatio(1f)
         )
         
         Text(
             text = category.strCategory,
             color = Color.Black,
-            style = TextStyle(fontWeight = FontWeight.Bold),        // new
+            style = TextStyle(fontWeight = FontWeight.Bold),
             modifier = Modifier.padding(top = 4.dp)
         )
     }
