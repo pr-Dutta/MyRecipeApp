@@ -57,6 +57,8 @@ fun CategoryScreen(
             CategoryItem(category = category, navigateToDetail)
         }
     }
+
+//    CategoryItem(category = categories, navigateToDetail)
 }
 
 @Composable
@@ -71,16 +73,16 @@ fun CategoryItem(
             .clickable { navigateToDetail(category) },
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Image(
-            painter = rememberAsyncImagePainter(model = category.strCategoryThumb),
-            contentDescription = null,
-            modifier = Modifier
-                .fillMaxSize()
-                .aspectRatio(1f)
-        )
+//        Image(
+//            painter = rememberAsyncImagePainter(model = category.strCategoryThumb),
+//            contentDescription = null,
+//            modifier = Modifier
+//                .fillMaxSize()
+//                .aspectRatio(1f)
+//        )
         
         Text(
-            text = category.strCategory,
+            text = category.quote,
             color = Color.Black,
             style = TextStyle(fontWeight = FontWeight.Bold),
             modifier = Modifier.padding(top = 4.dp)

@@ -24,20 +24,20 @@ fun CategoryDetailScreen(category: Category) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = category.strCategory,
+            text = category.quote,
             textAlign = TextAlign.Center
         )
         
-        Image(
-            painter = rememberAsyncImagePainter(category.strCategoryThumb),
-            contentDescription = "${category.strCategory} thumbnail",
-            modifier = Modifier
-                .wrapContentSize()
-                .aspectRatio(1f)
-        )
+//        Image(
+//            painter = rememberAsyncImagePainter(category.strCategoryThumb),
+//            contentDescription = "${category.strCategory} thumbnail",
+//            modifier = Modifier
+//                .wrapContentSize()
+//                .aspectRatio(1f)
+//        )
         
         Text(
-            text = category.strCategoryDescription,
+            text = category.author,
             textAlign = TextAlign.Justify,
             modifier = Modifier.verticalScroll(rememberScrollState())
         )
