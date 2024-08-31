@@ -32,9 +32,9 @@ class MainViewModel : ViewModel() {
         }
     }
 
-//    data class RecipeState(
-//        val loading: Boolean = true,
-//        val list: List<Category> = emptyList(),
-//        val error: String? = null
-//    )
+    data class RecipeState(
+        val loading: Boolean = true,
+        val list: List<Category> = emptyList(),
+        val error: String? = null
+    )
 }
